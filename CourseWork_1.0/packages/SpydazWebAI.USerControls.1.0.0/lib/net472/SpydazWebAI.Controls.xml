@@ -1,0 +1,1580 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SpydazWebAI.Controls
+</name>
+</assembly>
+<members>
+<member name="T:BasicUserControls.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:BasicUserControls.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:BasicUserControls.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:BasicUserControls.My.Resources.Resources.BackGround_Workspace">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:BasicUserControls.My.Resources.Resources.close">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebLineNumbering.OnPaint(System.Windows.Forms.PaintEventArgs)">
+ <summary>
+ OnPaint will go through the enabled elements (vertical ReminderMessage, GridLines, LineNumbers, BorderLines, MarginLines) and will
+ draw them if enabled. At the same time, it will build GraphicsPaths for each of those elements (that are enabled), which will be used
+ in SeeThroughMode (if it's active): the figures in the GraphicsPaths will form a customized outline for the control by setting them as the
+ Region of the LineNumber control. Note: the vertical ReminderMessages are only drawn during designtime.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebLineNumbering.FindStartIndex(System.Int32@,System.Int32@,System.Int32@)">
+ <summary>
+ FindStartIndex is a recursive Sub (one that calls itself) to compute the first visible line that should have a LineNumber.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebLineNumbering.Update_SizeAndPosition">
+ <summary>
+ This Sub will run whenever Me.Refresh() is called. It applies the AutoSizing and DockSide settings.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebLineNumbering.Update_VisibleLineNumberItems">
+ <summary>
+ This Sub determines which textlines are visible in the ParentRichTextBox, and makes LineNumberItems (LineNumber + ItemRectangle)
+ for each visible line. They are put into the zLNIs List that will be used by the OnPaint event to draw the LineNumberItems.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.AddDataTab(System.Windows.Forms.TabControl@)">
+ <summary>
+ Adds a current new tab(document)
+ </summary>
+ <param name="Sender">tab control</param>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.AddDataTab(System.Windows.Forms.TabControl@,System.Object@)">
+ <summary>
+ Adds a current new tab(document)
+ </summary>
+ <param name="Sender">tab control</param>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.CheckTab(System.Windows.Forms.TabControl.TabPageCollection@,System.String@)">
+ <summary>
+ Used to check if Tab is in collection (to disable duplicate tabs)
+ </summary>
+ <param name="Tabs"></param>
+ <param name="Text">title of tab</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.DownloadImages(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ Name of Download Folder
+ </summary>
+ <param name="FolderImages"></param>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.GetCurrentTabDataGridView(System.Windows.Forms.TabControl@)">
+ <summary>
+ Returns text held in current tab
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <returns>text</returns>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.InsertSyntaxText(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ Used to insert Scripts etc to the TextBox
+ </summary>
+ <param name="Text"></param>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.InsertText(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ Used to insert Scripts etc to the TextBox
+ </summary>
+ <param name="Text"></param>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.IsDataTab(System.Windows.Forms.TabControl@)">
+ <summary>
+ Checks if tab is web or text or data
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.Controls.SpydazWebTabcontrol.InsertTextTab(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ Used to insert Scripts etc to the TextBox
+ </summary>
+ <param name="Text"></param>
+</member>
+<member name="T:BasicUserControls.Controls.SpydazWebTextBox">
+ <summary>
+ Customized Text boxes
+ </summary>
+</member>
+<member name="T:BasicUserControls.Controls.AdvancedTreeViewNodes.ButtonNode">
+ <summary>
+ Still need work to map the button press handling
+ </summary>
+</member>
+<member name="M:BasicUserControls.WebSite.CleanUrl(System.String)">
+ <summary>
+ Cleans up URL
+ </summary>
+ <param name="Url">www.google.com to www_google_com</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadFile(System.String@,System.String@)">
+ <summary>
+ Download urlLink
+ </summary>
+ <param name="UrlLink">Fully qualified link to item</param>
+ <param name="Filename">filename for item</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadHtml(System.String)">
+ <summary>
+ Downloads Html fomr Url (Slightliy Formatted)
+ </summary>
+ <param name="url"></param>
+ <returns>html screen (formatted)</returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadHtmlToFile(System.String)">
+ <summary>
+ Downloads Html fomr Url (Slightliy Formatted)
+ </summary>
+ <param name="url"></param>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadImage(System.String)">
+ <summary>
+ Download Image from url http://www.spydazweb.co.uk/image.gif
+ </summary>
+ <param name="Url"></param>
+ <returns>image</returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadImageLinks(System.String)">
+ <summary>
+ Attmpts to get list of image links
+ </summary>
+ <param name="url"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadImageLinksToFile(System.String)">
+ <summary>
+ Attempts to get list of image links
+ </summary>
+ <param name="url"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadLinks(System.String)">
+ <summary>
+ Download Html Links from Url
+ </summary>
+ <param name="url"></param>
+ <returns>List of Links</returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadLinksToFile(System.String)">
+ <summary>
+ Download Html Links from Url
+ </summary>
+ <param name="url"></param>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadText(System.String)">
+ <summary>
+ Download text from url webpage
+ </summary>
+ <param name="url">http://www.spydazweb.co.uk</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadTextToFile(System.String)">
+ <summary>
+ Download text from url webpage
+ </summary>
+ <param name="url">http://www.spydazweb.co.uk</param>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadWebSource(System.String)">
+ <summary>
+ Download Web Page source (raw)
+ </summary>
+ <param name="Url"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.WebSite.DownloadWebSourceToFile(System.String)">
+ <summary>
+ Download Web Page source (raw)
+ </summary>
+ <param name="Url"></param>
+</member>
+<member name="T:BasicUserControls.SpydazWebTextBoxExtensions">
+ <summary>
+ SpydazWeb textbox Extensions
+ </summary>
+</member>
+<member name="T:BasicUserControls.RichTextBoxExtensions">
+ <summary>
+ Rich TextBox Extensions
+ </summary>
+</member>
+<member name="M:BasicUserControls.RichTextBoxExtensions.GetLastWordEntered(System.Windows.Forms.RichTextBox@)">
+ <summary>
+ returns last word entered into box
+ </summary>
+ <param name="Sender"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.RichTextBoxExtensions.GetLastIndex(System.Windows.Forms.RichTextBox@)">
+ <summary>
+ Gets the last index of the last word entered
+ </summary>
+ <param name="sender">rich text box</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.RichTextBoxExtensions.HighlightWord(System.Windows.Forms.RichTextBox@,System.String@)">
+ <summary>
+ Highlights a specific word
+ </summary>
+ <param name="sender">richtextbox</param>
+ <param name="word"></param>
+</member>
+<member name="T:BasicUserControls.Highlighter">
+ <summary>
+ Colors Words in RichText Box
+ </summary>
+</member>
+<member name="M:BasicUserControls.Highlighter.ProperCase(System.String@)">
+ <summary>
+ Returns Propercase Sentence
+ </summary>
+ <param name="TheString">String to be formatted</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.Highlighter.SearchSyntax(System.Windows.Forms.RichTextBox@)">
+ <summary>
+ Searches For Internal Syntax
+ </summary>
+ <param name="Rtb"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.Highlighter.SearchSyntax(System.Windows.Forms.RichTextBox@,System.Collections.Generic.List{System.String}@)">
+ <summary>
+ Searches For Internal Syntax
+ </summary>
+ <param name="Rtb"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.Highlighter.SearchSyntax(System.Windows.Forms.RichTextBox@,System.String@)">
+ <summary>
+ Searches for Specific Word to colorize (Blue)
+ </summary>
+ <param name="Rtb"></param>
+ <param name="SearchStr"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.Highlighter.SearchSyntax(System.Windows.Forms.RichTextBox@,System.String@,System.Drawing.Color)">
+ <summary>
+ Searches for Specfic word to colorize specified color
+ </summary>
+ <param name="Rtb"></param>
+ <param name="SearchStr"></param>
+ <param name="MyColor"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.CheckTab(System.Windows.Forms.TabControl.TabPageCollection@,System.String@)">
+ <summary>
+ Used to check if Tab is in collection (to disable duplicate tabs)
+ </summary>
+ <param name="Tabs"></param>
+ <param name="Text">title of tab</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.InsertText(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ Used to insert Scripts etc to the TextBox
+ </summary>
+ <param name="Text"></param>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.InsertSyntaxText(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ Used to insert Scripts etc to the TextBox
+ </summary>
+ <param name="Text"></param>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.InsertTextTab(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ Used to insert Scripts etc to the TextBox
+ </summary>
+ <param name="Text"></param>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.VB_Tab_CodeCompiler(System.Windows.Forms.TabControl@,System.String,System.String@,System.String@,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String}@)">
+ <summary>
+ Compiles Code from Text TabControl
+ </summary>
+ <param name="Sender">Tabcontrol Is used to return error Result </param>
+ <param name="CodeBlock">Text To be Compiled</param>
+ <param name="iClassName">ClassName Required For Executing Code in Memeory</param>
+ <param name="iMethodName">Required for executing Code in Memenory</param>
+ <param name="Assemblies">Reffereced Assemblies</param>
+ <param name="EmbededFiles">Reffereced Embedded Files</param>
+ <param name="CompileType">EXE/MEM/DLL</param>
+</member>
+<member name="F:BasicUserControls.TabControls.MasterTabControl.TabPages">
+ <summary>
+ Current number of tabpages
+ </summary>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.AddDataTab(System.Windows.Forms.TabControl@,System.Int32@)">
+ <summary>
+ Adds a current new tab(document)
+ </summary>
+ <param name="Sender">tab control</param>
+ <param name="Tabcount">tab count</param>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.AddDataTab(System.Windows.Forms.TabControl@,System.Int32@,System.Object@)">
+ <summary>
+ Adds a current new tab(document)
+ </summary>
+ <param name="Sender">tab control</param>
+ <param name="Tabcount">tab count</param>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.GetCurrentTabDataGridView(System.Windows.Forms.TabControl@)">
+ <summary>
+ Returns text held in current tab
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <returns>text</returns>
+</member>
+<member name="M:BasicUserControls.TabControls.MasterTabControl.IsDataTab(System.Windows.Forms.TabControl@)">
+ <summary>
+ Checks if tab is web or text or data
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.CleanUrl(System.String)">
+ <summary>
+ Cleans up URL
+ </summary>
+ <param name="Url">www.google.com to www_google_com</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadText(System.String)">
+ <summary>
+ Download text from url webpage
+ </summary>
+ <param name="url">http://www.spydazweb.co.uk</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadTextToFile(System.String)">
+ <summary>
+ Download text from url webpage
+ </summary>
+ <param name="url">http://www.spydazweb.co.uk</param>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadHtml(System.String)">
+ <summary>
+ Downloads Html fomr Url (Slightliy Formatted)
+ </summary>
+ <param name="url"></param>
+ <returns>html screen (formatted)</returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadWebSource(System.String)">
+ <summary>
+ Download Web Page source (raw)
+ </summary>
+ <param name="Url"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadWebSourceToFile(System.String)">
+ <summary>
+ Download Web Page source (raw)
+ </summary>
+ <param name="Url"></param>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadHtmlToFile(System.String)">
+ <summary>
+ Downloads Html fomr Url (Slightliy Formatted)
+ </summary>
+ <param name="url"></param>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadLinks(System.String)">
+ <summary>
+ Download Html Links from Url
+ </summary>
+ <param name="url"></param>
+ <returns>List of Links</returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadImageLinks(System.String)">
+ <summary>
+ Attmpts to get list of image links
+ </summary>
+ <param name="url"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadLinksToFile(System.String)">
+ <summary>
+ Download Html Links from Url
+ </summary>
+ <param name="url"></param>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadImageLinksToFile(System.String)">
+ <summary>
+ Attempts to get list of image links
+ </summary>
+ <param name="url"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadFile(System.String@,System.String@)">
+ <summary>
+ Download urlLink
+ </summary>
+ <param name="UrlLink">Fully qualified link to item</param>
+ <param name="Filename">filename for item</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.WebSite.DownloadImage(System.String)">
+ <summary>
+ Download Image from url http://www.spydazweb.co.uk/image.gif
+ </summary>
+ <param name="Url"></param>
+ <returns>image</returns>
+</member>
+<member name="T:BasicUserControls.TabControls.SyntaxHighlighter">
+ <summary>
+ Colors Words in RichText Box
+ </summary>
+</member>
+<member name="M:BasicUserControls.TabControls.SyntaxHighlighter.SearchSyntax(System.Windows.Forms.RichTextBox@)">
+ <summary>
+ Searches For Internal Syntax
+ </summary>
+ <param name="Rtb"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.TabControls.SyntaxHighlighter.SearchSyntax(System.Windows.Forms.RichTextBox@,System.Collections.Generic.List{System.String}@)">
+ <summary>
+ Searches For Internal Syntax
+ </summary>
+ <param name="Rtb"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.TabControls.SyntaxHighlighter.SearchSyntax(System.Windows.Forms.RichTextBox@,System.String@)">
+ <summary>
+ Searches for Specific Word to colorize (Blue)
+ </summary>
+ <param name="Rtb"></param>
+ <param name="SearchStr"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.TabControls.SyntaxHighlighter.SearchSyntax(System.Windows.Forms.RichTextBox@,System.String@,System.Drawing.Color)">
+ <summary>
+ Searches for Specfic word to colorize specified color
+ </summary>
+ <param name="Rtb"></param>
+ <param name="SearchStr"></param>
+ <param name="MyColor"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.TabControls.SyntaxHighlighter.ProperCase(System.String@)">
+ <summary>
+ Returns Propercase Sentence
+ </summary>
+ <param name="TheString">String to be formatted</param>
+ <returns></returns>
+</member>
+<member name="T:BasicUserControls.TabControls.TabExt">
+ <summary>
+ Tabpage Extensions
+ </summary>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.GetCurrentTabRichTextBox(System.Windows.Forms.TabControl@)">
+ <summary>
+ Returns text held in current tab
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <returns>text</returns>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.IsTextTab(System.Windows.Forms.TabControl@)">
+ <summary>
+ Checks if tab is web or text
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.RemoveAllTabs(System.Windows.Forms.TabControl@,System.Int32@)">
+ <summary>
+ Closes all tabs
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <param name="Tabcount">number of tabs</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.RemoveAllTabsButThis(System.Windows.Forms.TabControl@,System.Int32@)">
+ <summary>
+ removes all tabs except current
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <param name="TabCount">number of tabs</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.AddTextTab(System.Windows.Forms.TabControl@,System.Int32@,System.String@,System.String@)">
+ <summary>
+ Adds new tab with data
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <param name="Tabcount">number of pages</param>
+ <param name="Text">data</param>
+ <param name="Title">title</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.AddTextTab(System.Windows.Forms.TabControl@,System.Int32@)">
+ <summary>
+ Adds a current new tab(document) (Empty)
+ </summary>
+ <param name="Sender">tab control</param>
+ <param name="Tabcount">tab count</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.SaveCurrentTab(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ saves data in current tab to file
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <param name="Filename">filename</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.OpenFileInCurrent(System.Windows.Forms.TabControl@,System.String@)">
+ <summary>
+ loads file data into current tab
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <param name="Filename">data file</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.OpenFileInNewTab(System.Windows.Forms.TabControl@,System.Int32@,System.String@)">
+ <summary>
+ opens file in new tab
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <param name="Tabcount">number of tabs</param>
+ <param name="Filename">file location</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.GetCurrentTabDataGridView(System.Windows.Forms.TabControl@)">
+ <summary>
+ Returns text held in current tab
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <returns>text</returns>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.GetCurrentTabDataTable(System.Windows.Forms.TabControl@)">
+ <summary>
+ Returns text held in current tab
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <returns>text</returns>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.IsDataTab(System.Windows.Forms.TabControl@)">
+ <summary>
+ Checks if tab is web or text or data
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.AddDataTab(System.Windows.Forms.TabControl@,System.Int32@)">
+ <summary>
+ Adds a current new tab(document)
+ </summary>
+ <param name="Sender">tab control</param>
+ <param name="Tabcount">tab count</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.AddDataTab(System.Windows.Forms.TabControl@,System.Int32@,System.Object@)">
+ <summary>
+ Adds a current new tab(document)
+ </summary>
+ <param name="Sender">tab control</param>
+ <param name="Tabcount">tab count</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.IsWebTab(System.Windows.Forms.TabControl@)">
+ <summary>
+ Checks if tab is web or text
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.AddWebSourceTab(System.Windows.Forms.TabControl@,System.Int32@,System.String@)">
+ <summary>
+ adds Webtab
+ </summary>
+ <param name="Sender">tabcontrol</param>
+ <param name="Tabcount">number of pages</param>
+ <param name="Source">html source text</param>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.FindCenter(System.Drawing.Point,System.Drawing.Size,System.Drawing.Size)">
+ <summary>
+This is a way of opening a dialog form in the center of the main form
+without using Me.StartPosition = FormStartPosition.CenterParent
+ EG:
+ 1 = Dim center = Local.FindCenter(New Point(0, 0), MouseInfo.ScreenSize(), New Size(Width, Height))
+ EG
+ 2=      Location() = New Point(x, y)
+ 2=      Location() = Local.FindCenter(New Point(sender.Left, sender.Top), New Size(sender.Width, sender.Height), Size())
+ </summary>
+ <param name="formLocation"></param>
+ <param name="formSize"></param>
+ <param name="dialogSize"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.FindCenter(System.Drawing.Point,System.Drawing.Size)">
+ <summary>
+This is a way of opening a dialog form in the center of the main form
+without using Me.StartPosition = FormStartPosition.CenterParent
+ </summary>
+ <param name="formLocation"></param>
+ <param name="formSize"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.TabControls.TabExt.FindCenter(System.Windows.Forms.Control,System.Windows.Forms.Control)">
+ <summary>
+This is a way of opening a dialog form in the center of the main form
+without using Me.StartPosition = FormStartPosition.CenterParent
+ </summary>
+ <param name="form"></param>
+ <param name="Dialog"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.ResourceFileSave(System.Byte[],System.String)">
+ <summary>
+ Writes the contents of an embedded resource embedded as Bytes to disk.
+ </summary>
+ <param name="BytesToWrite">Embedded resource</param>
+ <param name="FileName">    Save to file</param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AddFullStop(System.String@)">
+ <summary>
+ Add full stop to end of String
+ </summary>
+ <param name="MESSAGE"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.AddPrefix(System.String@,System.String)">
+ <summary>
+ Adds string to end of string (no spaces)
+ </summary>
+ <param name="Str">base string</param>
+ <param name="Prefix">Add before (no spaces)</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.AddSuffix(System.String@,System.String)">
+ <summary>
+ Adds Suffix to String (No Spaces)
+ </summary>
+ <param name="Str">Base string</param>
+ <param name="Suffix">To be added After</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.AlphaNumericalOnly(System.String@)">
+ <summary>
+ GO THROUGH EACH CHARACTER AND ' IF PUNCTUATION IE .!?,:'"; REPLACE WITH A SPACE ' IF ,
+ OR . THEN CHECK IF BETWEEN TWO NUMBERS, IF IT IS ' THEN LEAVE IT, ELSE REPLACE IT WITH A
+ SPACE '
+ </summary>
+ <param name="STRINPUT">String to be formatted</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.ARCCOSECANT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE COSECANT OF THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : INVERSE COSECANT AS A DOUBLE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>DBLIN - VALUE TO CALCULATE ' RETURNS : INVERSE COSECANT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.ARCCOSINE(System.Double)">
+ <summary>
+ COMMENTS: RETURNS THE ARC COSINE OF THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN -Number TO RUN ON ' RETURNS : ARC COSINE AS A DOUBLE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>DBLIN -Number TO RUN ON ' RETURNS : ARC COSINE AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.ARCCOTANGENT(System.Double)">
+ <summary>
+ COMMENTS: RETURNS THE INVERSE COTANGENT Of THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN -VALUE TO CALCULATE ' RETURNS : INVERSE COTANGENT AS A DOUBLE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>INVERSE COTANGENT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.ARCSECANT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE SECANT OF THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : INVERSE SECANT AS A DOUBLE ' '
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>DBLIN - VALUE TO CALCULATE ' RETURNS : INVERSE SECANT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.ARCSINE(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE SINE OF THE SUPPLIED NUMBER '
+ PARAMETERS:  ' '
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>DBLIN - VALUE TO CALCULATE ' RETURNS : INVERSE SINE AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.ARCTANGENT(System.Double,System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE TANGENT OF THE SUPPLIED NUMBERS. ' NOTE THAT BOTH VALUES
+ CANNOT BE ZERO. '
+ PARAMETERS: DBLIN - FIRST VALUE ' DBLIN2 - SECOND VALUE ' RETURNS : INVERSE TANGENT AS A
+             DOUBLE ' '
+ </summary>
+ <param name="DBLIN"></param>
+ <param name="DBLIN2"></param>
+ <returns>RETURNS : INVERSE TANGENT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfCircle(System.Double)">
+ <summary>
+ Comments : Returns the area of a circle
+ </summary>
+ <param name="dblRadius">dblRadius - radius of circle</param>
+ <returns>Returns : area (Double)</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfRectangle(System.Double,System.Double)">
+ <summary>
+ Returns the area of a rectangle
+ </summary>
+ <param name="dblLength">dblLength - length of rectangle</param>
+ <param name="dblWidth">width of rectangle</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfRing(System.Double,System.Double)">
+ <summary>
+ Returns the area of a ring
+ </summary>
+ <param name="dblInnerRadius">dblInnerRadius - inner radius of the ring</param>
+ <param name="dblOuterRadius">outer radius of the ring</param>
+ <returns>area</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfSphere(System.Double)">
+ <summary>
+ Returns the area of a sphere
+ </summary>
+ <param name="dblRadius">dblRadius - radius of the sphere</param>
+ <returns>area</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfSquare(System.Double)">
+ <summary>
+ Returns the area of a square
+ </summary>
+ <param name="dblSide">dblSide - length of a side of the square</param>
+ <returns>area</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfSquareDiag(System.Double)">
+ <summary>
+ Returns the area of a square
+ </summary>
+ <param name="dblDiag">dblDiag - length of the square's diagonal</param>
+ <returns>area</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfTrapezoid(System.Double,System.Double,System.Double)">
+ <summary>
+ Returns the area of a trapezoid
+ </summary>
+ <param name="dblHeight">dblHeight - height</param>
+ <param name="dblLength1">length of first side</param>
+ <param name="dblLength2">length of second side</param>
+ <returns>area</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfTriangle(System.Double,System.Double)">
+ <summary>
+ returns the area of a triangle
+ </summary>
+ <param name="dblLength">dblLength - length of a side</param>
+ <param name="dblHeight">perpendicular height</param>
+ <returns></returns>
+ <remarks>area</remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AreaOfTriangle2(System.Double,System.Double,System.Double)">
+ <summary>
+ </summary>
+ <param name="dblSideA">dblSideA - length of first side</param>
+ <param name="dblSideB">dblSideB - length of second side</param>
+ <param name="dblSideC">dblSideC - length of third side</param>
+ <returns>the area of a triangle</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.AverageGrowth(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ Calculating Average Growth Rate Over Regular Time Intervals
+ </summary>
+ <param name="Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.CapitaliseTEXT(System.String)">
+ <summary>
+ Capitalizes the text
+ </summary>
+ <param name="MESSAGE"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.CapitalizeWords(System.String)">
+ <summary>
+ Capitalise the first letter of each word / Tilte Case
+ </summary>
+ <param name="words">A string - paragraph or sentence</param>
+ <returns>String</returns>
+</member>
+<member name="M:BasicUserControls.SYS.CharToMorse(System.String@)">
+ <summary>
+ converts charactert to Morse code
+ </summary>
+ <param name="Ch"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.ChkDir(System.String@)">
+ <summary>
+ Checks if directory exists If it does not then it is created
+ </summary>
+ <param name="YourPath"></param>
+</member>
+<member name="M:BasicUserControls.SYS.CnvCelsiusToFahrenheit(System.Int32)">
+ <summary>
+ FUNCTION: CELSIUSTOFAHRENHEIT '
+ DESCRIPTION: CONVERTS CELSIUS DEGREES TO FAHRENHEIT DEGREES ' WHERE TO PLACE CODE:
+              MODULE '
+ NOTES: THE LARGEST NUMBER CELSIUSTOFAHRENHEIT WILL CONVERT IS 32,767
+ </summary>
+ <param name="intCelsius"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.CnvFahrenheitToCelsius(System.Int32)">
+ <summary>
+ FUNCTION: FAHRENHEITTOCELSIUS '
+ DESCRIPTION: CONVERTS FAHRENHEIT DEGREES TO CELSIUS DEGREES '
+ NOTES: THE LARGEST NUMBER FAHRENHEITTOCELSIUS WILL CONVERT IS 32,767 '
+ </summary>
+ <param name="intFahrenheit"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.ContainsLetters(System.String)">
+ <summary>
+ Checks if String Contains Letters
+ </summary>
+ <param name="str"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.Correlation(System.Collections.Generic.List{System.Double}@,System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ When two sets of data are strongly linked together we say they have a High Correlation.
+ Correlation is Positive when the values increase together, and Correlation is Negative
+ when one value decreases as the other increases 1 is a perfect positive correlation 0 Is
+ no correlation (the values don't seem linked at all)
+ -1 Is a perfect negative correlation
+ </summary>
+ <param name="X_Series"></param>
+ <param name="Y_Series"></param>
+</member>
+<member name="M:BasicUserControls.SYS.COSECANT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE COSECANT OF THE SUPPLIED NUMBER. ' NOTE THAT SIN(DBLIN) CANNOT
+ EQUAL ZERO. THIS CAN ' HAPPEN IF DBLIN IS A MULTIPLE OF CDBLPI. '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : COSECANT AS A DOUBLE ' '
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>DBLIN - VALUE TO CALCULATE ' RETURNS : COSECANT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.COTANGENT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE COTANGENT OF THE SUPPLIED NUMBER ' FUNCTION IS UNDEFINED IF INPUT
+ VALUE IS A MULTIPLE OF CDBLPI. '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : COTANGENT AS A DOUBLE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>COTANGENT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.CountElements(System.String,System.String)">
+ <summary>
+ Counts the number of elements in the text, useful for declaring arrays when the element
+ length is unknown could be used to split sentence on full stop Find Sentences then again
+ on comma(conjunctions) "Find Clauses" NumberOfElements = CountElements(Userinput, delimiter)
+ </summary>
+ <param name="PHRASE"></param>
+ <param name="Delimiter"></param>
+ <returns>Integer : number of elements found</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.CountOccurrences(System.String@,System.String@)">
+ <summary>
+ counts occurrences of a specific phoneme
+ </summary>
+ <param name="strIn"></param>
+ <param name="strFind"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.CountTokensInString(System.String@,System.String@)">
+ <summary>
+ Counts tokens in string
+ </summary>
+ <param name="Str">string to be searched</param>
+ <param name="Delimiter">delimiter such as space comma etc</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.CountWords(System.String)">
+ <summary>
+ Counts the words in a given text
+ </summary>
+ <param name="NewText"></param>
+ <returns>integer: number of words</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.DetectKeyWord(System.String@,System.String@)">
+ <summary>
+ checks Str contains keyword regardless of case
+ </summary>
+ <param name="Userinput"></param>
+ <param name="Keyword"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.DetectLOGIC(System.String@,System.String@,System.String@,System.String@,System.String@)">
+ <summary>
+ DETECT IF STATMENT IS AN IF/THEN DETECT IF STATMENT IS AN IF/THEN -- -RETURNS PARTS DETIFTHEN
+ = DETECTLOGIC(USERINPUT, "IF", "THEN", IFPART, THENPART)
+ </summary>
+ <param name="userinput"></param>
+ <param name="LOGICA">"IF", can also be replace by "IT CAN BE SAID THAT</param>
+ <param name="LOGICB">"THEN" can also be replaced by "it must follow that"</param>
+ <param name="IFPART">supply empty string to be used to hold part</param>
+ <param name="THENPART">supply empty string to be used to hold part</param>
+ <returns>true/false</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.Difference(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ Returns the Difference Form the Mean
+ </summary>
+ <param name="Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.ExpandToWords(System.String)">
+ <summary>
+ Expand a string such as a field name by inserting a space ahead of each capitalized
+ letter (where none exists).
+ </summary>
+ <param name="inputString"></param>
+ <returns>Expanded string</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.ExtractLastWord(System.String@)">
+ <summary>
+ Returns The last word in String
+ NOTE: String ois converted to Array then the last element is extracted Count-1
+ </summary>
+ <param name="InputStr"></param>
+ <returns>String</returns>
+</member>
+<member name="M:BasicUserControls.SYS.ExtractStringBetween(System.String,System.String,System.String)">
+ <summary>
+ extracts string between defined strings
+ </summary>
+ <param name="value">base sgtring</param>
+ <param name="strStart">Start string</param>
+ <param name="strEnd">End string</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.ExtractWordsBetween(System.String@,System.String@,System.String@)">
+ <summary>
+ This will extract the words within the (Text) between (word1) and (word2). Example:
+ Text="The rain in Spain." Print ExtractWordsBetween("the "," in ",Text) rain
+ </summary>
+ <param name="Word1"></param>
+ <param name="Word2"></param>
+ <param name="Text"> </param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.ExtractWordsEitherSide(System.String@,System.String@,System.String@)">
+ <summary>
+ Extract words Either side of Divider
+ </summary>
+ <param name="TextStr"></param>
+ <param name="Divider"></param>
+ <param name="Mode">Front = F Back =B</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.FileSave(System.Byte[],System.String)">
+ <summary>
+ Writes the contents of an embedded file resource embedded as Bytes to disk.
+ EG: My.Resources.DefBrainConcepts.FileSave(Application.StartupPath and "\DefBrainConcepts.ACCDB")
+ </summary>
+ <param name="BytesToWrite">Embedded resource Name</param>
+ <param name="FileName">Save to file</param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.FindSentencesContaining(System.String@,System.Collections.Generic.List{System.String}@)">
+ <summary>
+ Define the search terms. This list could also be dynamically populated at runtime Find
+ sentences that contain all the terms in the wordsToMatch array Note that the number of
+ terms to match is not specified at compile time
+ </summary>
+ <param name="TextStr1">String to be searched</param>
+ <param name="Words">List of Words to be detected</param>
+ <returns>Sentences containing words</returns>
+</member>
+<member name="M:BasicUserControls.SYS.GetAfter(System.String,System.String)">
+ <summary>
+ Gets the string after the given string parameter.
+ </summary>
+ <param name="value">The default value.</param>
+ <param name="x">The given string parameter.</param>
+ <returns></returns>
+ <remarks>Unlike GetBefore, this method trims the result</remarks>
+</member>
+<member name="M:BasicUserControls.SYS.GetBefore(System.String,System.String)">
+ <summary>
+ Gets the string before the given string parameter.
+ </summary>
+ <param name="value">The default value.</param>
+ <param name="x">The given string parameter.</param>
+ <returns></returns>
+ <remarks>Unlike GetBetween and GetAfter, this does not Trim the result.</remarks>
+</member>
+<member name="M:BasicUserControls.SYS.GetBetween(System.String,System.String,System.String)">
+ <summary>
+ Gets the string between the given string parameters.
+ </summary>
+ <param name="value">The source value.</param>
+ <param name="x">The left string sentinel.</param>
+ <param name="y">The right string sentinel</param>
+ <returns></returns>
+ <remarks>Unlike GetBefore, this method trims the result</remarks>
+</member>
+<member name="M:BasicUserControls.SYS.GetPrefix(System.String@)">
+ <summary>
+ Returns the first Word
+ </summary>
+ <param name="Statement"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.GetRndChar(System.String,System.Int32)">
+ <summary>
+ Returns random character from string given length of the string to choose from
+ </summary>
+ <param name="Source"></param>
+ <param name="Length"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.GetSlice(System.String@,System.Int32@)">
+ <summary>
+ Returns from index to end of file
+ </summary>
+ <param name="Str">String</param>
+ <param name="indx">Index</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.GetSuffix(System.String@)">
+ <summary>
+ gets the last word
+ </summary>
+ <param name="InputStr"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.Growth(System.Double@,System.Double@)">
+ <summary>
+ Basic Growth
+ </summary>
+ <param name="Past"></param>
+ <param name="Present"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICARCCOSECANT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE HYPERBOLIC COSECANT OF THE ' SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : HYPERBOLIC INVERSE COSECANT AS A DOUBLE
+ </summary>
+ <param name="DBLIN">- VALUE TO CALCULATE</param>
+ <returns>HYPERBOLIC INVERSE COSECANT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICARCCOSINE(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE HYPERBOLIC COSINE OF THE ' SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>RETURNS : INVERSE HYPERBOLIC COSINE AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICARCCOTANGENT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE HYPERBOLIC TANGENT OF THE ' SUPPLIED NUMBER. UNDEFINED IF
+ DBLIN IS 1 '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>INVERSE HYPERBOLIC TANGENT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICARCSECANT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE HYPERBOLIC SECANT OF THE ' SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>RETURNS : INVERSE HYPERBOLIC SECANT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICARCSINE(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE HYPERBOLIC SINE OF THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : INVERSE HYPERBOLIC SINE AS A DOUBLE
+ </summary>
+ <param name="DBLIN">VALUE TO CALCULATE</param>
+ <returns>INVERSE HYPERBOLIC SINE AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICARCTAN(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE INVERSE HYPERBOLIC TANGENT OF THE ' SUPPLIED NUMBER. THE RETURN
+ VALUE IS UNDEFINED IF ' INPUT VALUE IS 1. '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : INVERSE HYPERBOLIC TANGENT AS A
+             DOUBLE '
+ </summary>
+ <param name="DBLIN">VALUE TO CALCULATE</param>
+ <returns>
+ DBLIN - VALUE TO CALCULATE ' RETURNS : INVERSE HYPERBOLIC TANGENT AS A DOUBLE '
+ </returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICCOSECANT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE HYPERBOLIC COSECANT OF THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : HYPERBOLIC COSECANT AS A DOUBLE ' '
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>RETURNS : HYPERBOLIC COSECANT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICCOSINE(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE HYPERBOLIC COSINE OF THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : HYPERBOLIC COSINE AS A DOUBLE ' '
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>RETURNS : HYPERBOLIC COSINE AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICCOTANGENT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE HYPERBOLIC COTANGENT OF THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : HYPERBOLIC COTANGENT AS A DOUBLE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>DBLIN - VALUE TO CALCULATE ' RETURNS : HYPERBOLIC COTANGENT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICSECANT(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE HYPERBOLIC SECANT OF THE SUPPLIED NUMBER '
+ PARAMETERS: DBLIN - VALUE TO CALCULATE ' RETURNS : HYPERBOLIC SECANT AS A DOUBLE
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>DBLIN - VALUE TO CALCULATE ' RETURNS : HYPERBOLIC SECANT AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.HYPERBOLICSINE(System.Double)">
+ <summary>
+ COMMENTS : RETURNS THE HYPERBOLIC SINE OF THE SUPPLIED NUMBER
+ </summary>
+ <param name="DBLIN"></param>
+ <returns>DBLIN - VALUE TO CALCULATE ' RETURNS : HYPERBOLIC SINE AS A DOUBLE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.InterpretCorrelationResult(System.Double@)">
+ <summary>
+ Returns interpretation of Corelation results
+ </summary>
+ <param name="Correlation"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.IsLike(System.String,System.String)">
+ <summary>
+     A string extension method that query if '@this' satisfy the specified pattern.
+ </summary>
+ <param name="this">The @this to act on.</param>
+ <param name="pattern">The pattern to use. Use '*' as wild card string.</param>
+ <returns>true if '@this' satisfy the specified pattern, false if not.</returns>
+</member>
+<member name="M:BasicUserControls.SYS.IsReservedWord(System.String)">
+ <summary>
+ Checks if string is a reserved VBscipt Keyword
+ </summary>
+ <param name="keyword"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.LoadJson">
+ <summary>
+ Loads Json file to new string
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.LOG10(System.Double)">
+ <summary>
+ COMMENTS : RETURNS LOG BASE 10. THE POWER 10 MUST BE RAISED ' TO EQUAL A GIVEN NUMBER.
+ LOG BASE 10 IS DEFINED AS THIS: ' X = LOG(Y) WHERE Y = 10 ^ X '
+ PARAMETERS: DBLDECIMAL - VALUE TO CALCULATE (Y) ' RETURNS : LOG BASE 10 OF THE GIVEN VALUE
+ ' '
+ </summary>
+ <param name="DBLDECIMAL"></param>
+ <returns>
+ DBLDECIMAL - VALUE TO CALCULATE (Y) ' RETURNS : LOG BASE 10 OF THE GIVEN VALUE
+ </returns>
+</member>
+<member name="M:BasicUserControls.SYS.LOG2(System.Double)">
+ <summary>
+ COMMENTS : RETURNS LOG BASE 2. THE POWER 2 MUST BE RAISED TO EQUAL ' A GIVEN NUMBER. '
+ LOG BASE 2 IS DEFINED AS THIS: ' X = LOG(Y) WHERE Y = 2 ^ X '
+ PARAMETERS: DBLDECIMAL - VALUE TO CALCULATE (Y) ' RETURNS : LOG BASE 2 OF A GIVEN NUMBER
+             ' '
+ </summary>
+ <param name="DBLDECIMAL"></param>
+ <returns>DBLDECIMAL - VALUE TO CALCULATE (Y) ' RETURNS : LOG BASE 2 OF A GIVEN NUMBER</returns>
+</member>
+<member name="M:BasicUserControls.SYS.LOGN(System.Double,System.Double)">
+ <summary>
+ COMMENTS : RETURNS LOG BASE N. THE POWER N MUST BE RAISED TO EQUAL ' A GIVEN NUMBER. '
+ LOG BASE N IS DEFINED AS THIS: ' X = LOG(Y) WHERE Y = N ^ X ' PARAMETERS:
+ </summary>
+ <param name="DBLDECIMAL"></param>
+ <param name="DBLBASEN"></param>
+ <returns>DBLDECIMAL - VALUE TO CALCULATE (Y) ' DBLBASEN - BASE ' RETURNS : LOG BASE</returns>
+</member>
+<member name="M:BasicUserControls.SYS.Mean(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ The avarage of a Series
+ </summary>
+ <param name="Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.MorseToChar(System.String@)">
+ <summary>
+ Converts Morse code Character to Alphabet
+ </summary>
+ <param name="Ch"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.Multiply(System.Collections.Generic.List{System.Double}@,System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ Multiplys X series by Y series
+ </summary>
+ <param name="X_Series"></param>
+ <param name="Y_Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.OpenTextFile(System.String@)">
+ <summary>
+ Opens text file and returns text
+ </summary>
+ <param name="PathName">URL of file</param>
+ <returns>text in file</returns>
+</member>
+<member name="M:BasicUserControls.SYS.PerimeterOfElipse(System.Double@,System.Double@)">
+ <summary>
+ Perimeter = 2πSqrt((r1² + r2² / 2)
+ = 2 * 3.14 * Sqrt((3² + 4²) / 2)
+ = 6.28 * Sqrt((9 + 16) / 2) = 6.28 * Sqrt(25 / 2)
+ = 6.28 * Sqrt(12.5) = 6.28 * 3.53 = 22.2. Area = πr1r2 = 3.14 * 3 * 4 = 37.68 .
+ </summary>
+ <param name="Radius1"></param>
+ <param name="Radius2"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.Phonetic(System.String@)">
+ <summary>
+ returns phonetic character for Letter
+ </summary>
+ <param name="InputStr"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.PredictGrowth(System.Collections.Generic.List{System.Double}@,System.Int32@)">
+ <summary>
+ Given a series of values Predict Value for interval provided based on AverageGrowth
+ </summary>
+ <param name="Series"></param>
+ <param name="Interval"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.ProperCase(System.String@)">
+ <summary>
+ Returns Propercase Sentence
+ </summary>
+ <param name="TheString">String to be formatted</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.RegExFindBetween(System.String@,System.String@,System.String@)">
+ <summary>
+ Find Between
+ Start ........
+ ....................
+ ....................Stop
+ </summary>
+ <param name="Text"></param>
+ <param name="StartStr"></param>
+ <param name="EndStr"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.RegExSearch(System.String@,System.String)">
+ <summary>
+ Main Searcher
+ </summary>
+ <param name="Text">to be searched </param>
+ <param name="Pattern">RegEx Search String</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.SaveTextFileAs(System.String@,System.String@)">
+ <summary>
+ Creates saves text file as
+ </summary>
+ <param name="PathName">nfilename and path to file</param>
+ <param name="_text">text to be inserted</param>
+</member>
+<member name="M:BasicUserControls.SYS.SearchPattern(System.String@,System.String@,System.Int16@)">
+ <summary>
+ Advanced search String pattern Wildcard denotes which position 1st =1 or 2nd =2 Send
+ Original input &gt; Search pattern to be used &gt; Wildcard requred SPattern = "WHAT
+ COLOUR DO YOU LIKE * OR *" Textstr = "WHAT COLOUR DO YOU LIKE red OR black" ITEM_FOUND =
+ = SearchPattern(USERINPUT, SPattern, 1) ---- RETURNS RED ITEM_FOUND = =
+ SearchPattern(USERINPUT, SPattern, 1) ---- RETURNS black
+ </summary>
+ <param name="TextSTR">
+ TextStr Required. String.EG: "WHAT COLOUR DO YOU LIKE red OR black"
+ </param>
+ <param name="SPattern">
+ SPattern Required. String.EG: "WHAT COLOUR DO YOU LIKE * OR *"
+ </param>
+ <param name="Wildcard">Wildcard Required. Integer.EG: 1st =1 or 2nd =2</param>
+ <returns></returns>
+ <remarks>* in search pattern</remarks>
+</member>
+<member name="M:BasicUserControls.SYS.SearchStringbyPattern(System.String@,System.String@,System.Int16@)">
+ <summary>
+ Advanced search String pattern Wildcard denotes which position 1st =1 or 2nd =2 Send
+ Original input &gt; Search pattern to be used &gt; Wildcard requred SPattern = "WHAT
+ COLOUR DO YOU LIKE * OR *" Textstr = "WHAT COLOUR DO YOU LIKE red OR black" ITEM_FOUND =
+ = SearchPattern(USERINPUT, SPattern, 1) ---- RETURNS RED ITEM_FOUND = =
+ SearchPattern(USERINPUT, SPattern, 2) ---- RETURNS black
+ </summary>
+ <param name="TextSTR">TextStr = "Pick Red OR Blue" . String.</param>
+ <param name="SPattern">Search String = ("Pick * OR *") String.</param>
+ <param name="Wildcard">Wildcard Required. Integer. = 1= Red / 2= Blue</param>
+ <returns></returns>
+ <remarks>finds the * in search pattern</remarks>
+</member>
+<member name="M:BasicUserControls.SYS.Sigmoid(System.Int32@)">
+ <summary>
+ the log-sigmoid function constrains results to the range (0,1), the function is
+ sometimes said to be a squashing function in neural network literature. It is the
+ non-linear characteristics of the log-sigmoid function (and other similar activation
+ functions) that allow neural networks to model complex data.
+ </summary>
+ <param name="Value"></param>
+ <returns></returns>
+ <remarks>1 / (1 + Math.Exp(-Value))</remarks>
+</member>
+<member name="M:BasicUserControls.SYS.SplitPhrase(System.String,System.String@,System.String@,System.String@)">
+ <summary>
+ SPLITS THE GIVEN PHRASE UP INTO TWO PARTS by dividing word SplitPhrase(Userinput, "and",
+ Firstp, SecondP)
+ </summary>
+ <param name="PHRASE">Sentence to be divided</param>
+ <param name="DIVIDINGWORD">String: Word to divide sentence by</param>
+ <param name="FIRSTPART">String: firstpart of sentence to be populated</param>
+ <param name="SECONDPART">String: Secondpart of sentence to be populated</param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.SplitString(System.String,System.String@,System.String@,System.String@)">
+ <summary>
+ SPLITS THE GIVEN PHRASE UP INTO TWO PARTS by dividing word SplitPhrase(Userinput, "and",
+ Firstp, SecondP)
+ </summary>
+ <param name="PHRASE">String: Sentence to be divided</param>
+ <param name="DIVIDINGWORD">String: Word to divide sentence by</param>
+ <param name="FIRSTPART">String-Returned : firstpart of sentence to be populated</param>
+ <param name="SECONDPART">String-Returned : Secondpart of sentence to be populated</param>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.SplitToList(System.String@,System.String)">
+ <summary>
+ Split string to List of strings
+ </summary>
+ <param name="Str">base string</param>
+ <param name="Seperator">to be seperated by</param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.Square(System.Double@)">
+ <summary>
+ Number multiplied by itself
+ </summary>
+ <param name="Value"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.Square(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ Square Each value in the series
+ </summary>
+ <param name="Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.SquaredDifferences(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ squared differences from the Mean.
+ </summary>
+ <param name="Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.StandardDeviation(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ The Standard Deviation is a measure of how spread out numbers are.
+ </summary>
+ <param name="Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.Sum(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ Sum Series of Values
+ </summary>
+ <param name="X_Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.SumOfSquaredDifferences(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ The Sum of the squared differences from the Mean.
+ </summary>
+ <param name="Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.ToDelimitedString(System.Collections.Generic.List{System.String},System.String)">
+ <summary>
+ Returns a delimited string from the list.
+ </summary>
+ <param name="ls"></param>
+ <param name="delimiter"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.UpdateTextFileAs(System.String@,System.String@)">
+ <summary>
+ replaces text in file with supplied text
+ </summary>
+ <param name="PathName">Pathname of file to be updated</param>
+ <param name="_text">Text to be inserted</param>
+</member>
+<member name="M:BasicUserControls.SYS.Variance(System.Collections.Generic.List{System.Double}@)">
+ <summary>
+ The average of the squared differences from the Mean.
+ </summary>
+ <param name="Series"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.VolOfCone(System.Double,System.Double)">
+ <summary>
+ Comments : Returns the volume of a cone '
+ </summary>
+ <param name="dblHeight">dblHeight - height of cone</param>
+ <param name="dblRadius">radius of cone base</param>
+ <returns>volume</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.VolOfCylinder(System.Double,System.Double)">
+ <summary>
+ Comments : Returns the volume of a cylinder
+ </summary>
+ <param name="dblHeight">dblHeight - height of cylinder</param>
+ <param name="dblRadius">radius of cylinder</param>
+ <returns>volume</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.VolOfPipe(System.Double,System.Double,System.Double)">
+ <summary>
+ Returns the volume of a pipe
+ </summary>
+ <param name="dblHeight">height of pipe</param>
+ <param name="dblOuterRadius">outer radius of pipe</param>
+ <param name="dblInnerRadius">inner radius of pipe</param>
+ <returns>volume</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.VolOfPyramid(System.Double,System.Double)">
+ <summary>
+ Returns the volume of a pyramid or cone
+ </summary>
+ <param name="dblHeight">height of pyramid</param>
+ <param name="dblBaseArea">area of the base</param>
+ <returns>volume</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.VolOfSphere(System.Double)">
+ <summary>
+ Returns the volume of a sphere
+ </summary>
+ <param name="dblRadius">dblRadius - radius of the sphere</param>
+ <returns>volume</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.VolOfTruncPyramid(System.Double,System.Double,System.Double)">
+ <summary>
+ Returns the volume of a truncated pyramid
+ </summary>
+ <param name="dblHeight">dblHeight - height of pyramid</param>
+ <param name="dblArea1">area of base</param>
+ <param name="dblArea2">area of top</param>
+ <returns>volume</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.VowelCount(System.String)">
+ <summary>
+ Counts the vowels used (AEIOU)
+ </summary>
+ <param name="InputString"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BasicUserControls.SYS.RemoveStopWords(System.String@)">
+ <summary>
+ Removes StopWords from sentence
+ ARAB/ENG/DUTCH/FRENCH/SPANISH/ITALIAN
+ Hopefully leaving just relevant words in the user sentence
+ Currently Under Revision (takes too many words)
+ </summary>
+ <param name="Userinput"></param>
+ <returns></returns>
+</member>
+<member name="M:BasicUserControls.SYS.HighlightIndex(System.Windows.Forms.RichTextBox,System.Int32,System.Int32,System.Drawing.Color)">
+ <summary>
+ Highlights selection of text from index to length
+ </summary>
+ <param name="rtb">RichTextBox</param>
+ <param name="index">Start Index</param>
+ <param name="length">Charchcters width</param>
+ <param name="color">Color</param>
+</member>
+<member name="M:BasicUserControls.SYS.HighlightInternalSyntax(System.Windows.Forms.RichTextBox@)">
+ <summary>
+ Uses internal syntax to Recolor VB.NEt Syntax Words
+ </summary>
+ <param name="sender">RichTextBox</param>
+</member>
+<member name="M:BasicUserControls.SYS.HighlightWord(System.Windows.Forms.RichTextBox@,System.String@)">
+ <summary>
+ Highlights Specific Word in The textbox
+ </summary>
+ <param name="sender">RichTextBox</param>
+ <param name="word">Word to be foud</param>
+</member>
+<member name="M:BasicUserControls.SYS.AddChildForm(System.Windows.Forms.Form@,System.Windows.Forms.Form@)">
+ <summary>
+ Adds a child form to the sent form
+ </summary>
+ <param name="Sender"></param>
+ <param name="form"></param>
+</member>
+</members>
+</doc>
