@@ -4,15 +4,13 @@ using RJCodeAdvance.RJControls;
 
 namespace CourseWork_1._0
 {
-    public partial class InfoEnterWindow : Form
+    public partial class EditWindow : Form
     {
         private MainWindow parent;
-
-        public InfoEnterWindow(MainWindow parent, int pageNumber)
+        public EditWindow(MainWindow parent, int pageNumber)
         {
             InitializeComponent();
             this.parent = parent;
-
             switch (pageNumber)
             {
                 case 0:
@@ -34,7 +32,7 @@ namespace CourseWork_1._0
             }
         }
 
-        public void AddButtonClick(object sender, EventArgs e)
+        private void EditButtonClick(object sender, EventArgs e)
         {
             foreach (var textBox in this.Controls)
             {
@@ -51,13 +49,24 @@ namespace CourseWork_1._0
             InfoDb.Name = nameTextBox.Texts;
             InfoDb.Date = DateField.Text;
             InfoDb.Material = MaterialTextBox.Texts;
-            InfoDb.Price = double.Parse(priceTextBox.Texts);
-            InfoDb.Amount = int.Parse(amountTextBox.Texts);
-
-            parent.AddNewRow();
+            if (!double.TryParse(priceTextBox.Texts, out InfoDb.Price) || InfoDb.Price <= 0)
+            {
+                MessageBox.Show("Error! Wrong price!");
+                return;
+            }
+            if (!int.TryParse(amountTextBox.Texts, out InfoDb.Amount) || InfoDb.Amount <= 0)
+            {
+                MessageBox.Show("Error! Wrong amount!");
+                return;
+            }
+            
+            parent.EditObject();
             Close();
         }
 
-        
+        private void EditWindow_Load(object sender, EventArgs e)
+        {
+            parent.ShowInfoAboutObject(ref nameTextBox, ref MaterialTextBox, ref DateField, ref priceTextBox, ref amountTextBox);
+        }
     }
 }

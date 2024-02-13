@@ -4,14 +4,18 @@ namespace CourseWork_1._0.Classes{
         private string _date;
 
         //class properties
-        public string Date { get; set; }
+        public string Date
+        {
+            get { return _date;  }
+            set { _date = value; }
+        }
 
         public SpoilingProducts() : base(){
             //base constructor
             _date = "00.00.0000 - 11.11.1111";
         }
 
-        public SpoilingProducts(string name, string date, int price, int amount) : base(name, price, amount){
+        public SpoilingProducts(string name, string date, double price, int amount) : base(name, price, amount){
             //constructor with parameters
             _date = date;
         }

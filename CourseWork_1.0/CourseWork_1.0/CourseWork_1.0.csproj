@@ -129,11 +129,17 @@
         <Compile Include="CS files\DataManipulator.cs" />
         <Compile Include="CS files\InfoDB.cs" />
         <Compile Include="CS files\Program.cs" />
-        <Compile Include="Form1.cs">
+        <Compile Include="EditWindow.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="EditWindow.Designer.cs">
+          <DependentUpon>EditWindow.cs</DependentUpon>
+        </Compile>
+        <Compile Include="MainWindow.cs">
             <SubType>Form</SubType>
         </Compile>
-        <Compile Include="Form1.Designer.cs">
-            <DependentUpon>Form1.cs</DependentUpon>
+        <Compile Include="MainWindow.Designer.cs">
+            <DependentUpon>MainWindow.cs</DependentUpon>
         </Compile>
         <Compile Include="InfoEnterWindow.cs">
           <SubType>Form</SubType>
@@ -142,8 +148,23 @@
           <DependentUpon>InfoEnterWindow.cs</DependentUpon>
         </Compile>
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <EmbeddedResource Include="Form1.resx">
-          <DependentUpon>Form1.cs</DependentUpon>
+        <Compile Include="PurchaseWindow.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="PurchaseWindow.Designer.cs">
+          <DependentUpon>PurchaseWindow.cs</DependentUpon>
+        </Compile>
+        <Compile Include="SellWindow.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="SellWindow.Designer.cs">
+          <DependentUpon>SellWindow.cs</DependentUpon>
+        </Compile>
+        <EmbeddedResource Include="EditWindow.resx">
+          <DependentUpon>EditWindow.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="MainWindow.resx">
+          <DependentUpon>MainWindow.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="InfoEnterWindow.resx">
           <DependentUpon>InfoEnterWindow.cs</DependentUpon>
@@ -157,6 +178,12 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="PurchaseWindow.resx">
+          <DependentUpon>PurchaseWindow.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="SellWindow.resx">
+          <DependentUpon>SellWindow.cs</DependentUpon>
+        </EmbeddedResource>
         <None Include="packages.config" />
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>
