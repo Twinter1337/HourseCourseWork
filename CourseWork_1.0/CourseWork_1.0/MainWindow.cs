@@ -147,67 +147,6 @@ namespace CourseWork_1._0
             return true;
         }
 
-        private void DeleteButtonClick(object sender, EventArgs e)
-        {
-            if (productsTable.Visible)
-            {
-                if (CheckIfRowSelected(productsTable))
-                {
-                    productsTable.Rows.Remove(productsTable.CurrentRow);
-                    productStorage.RemoveAt(productsTable.CurrentRow.Index);
-                }
-            }
-            else if (spoilingProductsTable.Visible)
-            {
-                if (CheckIfRowSelected(spoilingProductsTable))
-                {
-                    spoilingProductsTable.Rows.Remove(spoilingProductsTable.CurrentRow);
-                    spoilingProductsStorage.RemoveAt(spoilingProductsTable.CurrentRow.Index);
-                }
-            }
-            else if (nonPerishableProductsTable.Visible)
-            {
-                if (CheckIfRowSelected(nonPerishableProductsTable))
-                {
-                    nonPerishableProductsTable.Rows.Remove(nonPerishableProductsTable.CurrentRow);
-                    nonPerishableProductsStorage.RemoveAt(nonPerishableProductsTable.CurrentRow.Index);
-                }
-            }
-        }
-
-        private void EditButtonClick(object sender, EventArgs e)
-        {
-            int pageNumber = -1;
-            if (productsTable.Visible && !CheckIfRowSelected(productsTable))
-            {
-                return;
-            }
-            else if (spoilingProductsTable.Visible && !CheckIfRowSelected(spoilingProductsTable))
-            {
-                return;
-            }
-            else if (nonPerishableProductsTable.Visible && !CheckIfRowSelected(nonPerishableProductsTable))
-            {
-                return;
-            }
-
-            if (tabsTable.TabPages[0].Visible)
-            {
-                pageNumber = 0;
-            }
-            else if (tabsTable.TabPages[1].Visible)
-            {
-                pageNumber = 1;
-            }
-            else if (tabsTable.TabPages[2].Visible)
-            {
-                pageNumber = 2;
-            }
-            
-            EditWindow editWindow = new EditWindow(this, pageNumber);
-            editWindow.Show();
-        }
-
         public void ShowInfoAboutObject(ref RJCodeAdvance.RJControls.RJTextBox nameTextBox,
             ref RJCodeAdvance.RJControls.RJTextBox MaterialTextBox, ref RJCodeAdvance.RJControls.RJDatePicker dateField,
             ref RJCodeAdvance.RJControls.RJTextBox priceTextBox, ref RJCodeAdvance.RJControls.RJTextBox amountTextBox)
@@ -285,12 +224,12 @@ namespace CourseWork_1._0
             }
         }
 
-        private void richTextBox1_Enter(object sender, EventArgs e)
+        private void SearchTextBoxOnEnter(object sender, EventArgs e)
         {
             SearchTextBox.Text = "";
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        private void SearchButtonClick(object sender, EventArgs e)
         {
             for (int j = 0; j < productStorage.Count; j++)
             {
@@ -339,7 +278,7 @@ namespace CourseWork_1._0
             }
         }
 
-        private void ShowAllButton_Click(object sender, EventArgs e)
+        private void ShowAllButtonClick(object sender, EventArgs e)
         {
             SearchTextBox.Text = "Search...";
             for (int j = 0; j < productStorage.Count; j++)
@@ -358,7 +297,7 @@ namespace CourseWork_1._0
             }
         }
 
-        private void PurchaseButton_Click(object sender, EventArgs e)
+        private void PurchaseButtonClick(object sender, EventArgs e)
         {
             if (productsTable.Visible && !CheckIfRowSelected(productsTable))
             {
@@ -376,6 +315,85 @@ namespace CourseWork_1._0
             purchaseWindow.Show();
         }
 
+        private void SellButtonClick(object sender, EventArgs e)
+        {
+            if (productsTable.Visible && !CheckIfRowSelected(productsTable))
+            {
+                return;
+            }
+            else if (spoilingProductsTable.Visible && !CheckIfRowSelected(spoilingProductsTable))
+            {
+                return;
+            }
+            else if (nonPerishableProductsTable.Visible && !CheckIfRowSelected(nonPerishableProductsTable))
+            {
+                return;
+            }
+            SellWindow sellWindow = new SellWindow(this);
+            sellWindow.Show();
+        }
+        
+        private void DeleteButtonClick(object sender, EventArgs e)
+        {
+            if (productsTable.Visible)
+            {
+                if (CheckIfRowSelected(productsTable))
+                {
+                    productsTable.Rows.Remove(productsTable.CurrentRow);
+                    productStorage.RemoveAt(productsTable.CurrentRow.Index);
+                }
+            }
+            else if (spoilingProductsTable.Visible)
+            {
+                if (CheckIfRowSelected(spoilingProductsTable))
+                {
+                    spoilingProductsTable.Rows.Remove(spoilingProductsTable.CurrentRow);
+                    spoilingProductsStorage.RemoveAt(spoilingProductsTable.CurrentRow.Index);
+                }
+            }
+            else if (nonPerishableProductsTable.Visible)
+            {
+                if (CheckIfRowSelected(nonPerishableProductsTable))
+                {
+                    nonPerishableProductsTable.Rows.Remove(nonPerishableProductsTable.CurrentRow);
+                    nonPerishableProductsStorage.RemoveAt(nonPerishableProductsTable.CurrentRow.Index);
+                }
+            }
+        }
+
+        private void EditButtonClick(object sender, EventArgs e)
+        {
+            int pageNumber = -1;
+            if (productsTable.Visible && !CheckIfRowSelected(productsTable))
+            {
+                return;
+            }
+            else if (spoilingProductsTable.Visible && !CheckIfRowSelected(spoilingProductsTable))
+            {
+                return;
+            }
+            else if (nonPerishableProductsTable.Visible && !CheckIfRowSelected(nonPerishableProductsTable))
+            {
+                return;
+            }
+
+            if (tabsTable.TabPages[0].Visible)
+            {
+                pageNumber = 0;
+            }
+            else if (tabsTable.TabPages[1].Visible)
+            {
+                pageNumber = 1;
+            }
+            else if (tabsTable.TabPages[2].Visible)
+            {
+                pageNumber = 2;
+            }
+            
+            EditWindow editWindow = new EditWindow(this, pageNumber);
+            editWindow.Show();
+        }
+        
         public void Purchase(int amount)
         {
             if (productsTable.Visible)
@@ -396,25 +414,7 @@ namespace CourseWork_1._0
                     nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount;
             }
         }
-
-        private void SellButton_Click(object sender, EventArgs e)
-        {
-            if (productsTable.Visible && !CheckIfRowSelected(productsTable))
-            {
-                return;
-            }
-            else if (spoilingProductsTable.Visible && !CheckIfRowSelected(spoilingProductsTable))
-            {
-                return;
-            }
-            else if (nonPerishableProductsTable.Visible && !CheckIfRowSelected(nonPerishableProductsTable))
-            {
-                return;
-            }
-            SellWindow sellWindow = new SellWindow(this);
-            sellWindow.Show();
-        }
-
+        
         public void Sell(int amount)
         {
             if (productsTable.Visible)

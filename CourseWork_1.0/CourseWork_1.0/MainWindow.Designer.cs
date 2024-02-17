@@ -88,7 +88,7 @@ namespace CourseWork_1._0{
             // Layout
             // 
             this.Layout.AutoSize = true;
-            this.Layout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.Layout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
             this.Layout.ColumnCount = 1;
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Layout.Controls.Add(this.tabsTable, 0, 2);
@@ -116,9 +116,9 @@ namespace CourseWork_1._0{
             this.tabsTable.DisplayStyleProvider.BlendStyle = TradeWright.UI.Forms.BlendStyle.Normal;
             this.tabsTable.DisplayStyleProvider.BorderColorDisabled = System.Drawing.Color.White;
             this.tabsTable.DisplayStyleProvider.BorderColorFocused = System.Drawing.Color.White;
-            this.tabsTable.DisplayStyleProvider.BorderColorHighlighted = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
-            this.tabsTable.DisplayStyleProvider.BorderColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
-            this.tabsTable.DisplayStyleProvider.BorderColorUnselected = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.tabsTable.DisplayStyleProvider.BorderColorHighlighted = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.tabsTable.DisplayStyleProvider.BorderColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.tabsTable.DisplayStyleProvider.BorderColorUnselected = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
             this.tabsTable.DisplayStyleProvider.CloserButtonFillColorFocused = System.Drawing.Color.Empty;
             this.tabsTable.DisplayStyleProvider.CloserButtonFillColorFocusedActive = System.Drawing.Color.Empty;
             this.tabsTable.DisplayStyleProvider.CloserButtonFillColorHighlighted = System.Drawing.Color.Empty;
@@ -140,6 +140,7 @@ namespace CourseWork_1._0{
             this.tabsTable.DisplayStyleProvider.CloserColorSelected = System.Drawing.SystemColors.ControlText;
             this.tabsTable.DisplayStyleProvider.CloserColorSelectedActive = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabsTable.DisplayStyleProvider.CloserColorUnselected = System.Drawing.Color.Empty;
+            this.tabsTable.DisplayStyleProvider.FocusColor = System.Drawing.Color.SaddleBrown;
             this.tabsTable.DisplayStyleProvider.FocusTrack = false;
             this.tabsTable.DisplayStyleProvider.HotTrack = true;
             this.tabsTable.DisplayStyleProvider.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,18 +159,17 @@ namespace CourseWork_1._0{
             this.tabsTable.DisplayStyleProvider.TabColorDisabled2 = System.Drawing.SystemColors.Control;
             this.tabsTable.DisplayStyleProvider.TabColorFocused1 = System.Drawing.SystemColors.ControlLight;
             this.tabsTable.DisplayStyleProvider.TabColorFocused2 = System.Drawing.SystemColors.ControlLight;
-            this.tabsTable.DisplayStyleProvider.TabColorHighLighted1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.tabsTable.DisplayStyleProvider.TabColorHighLighted2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.tabsTable.DisplayStyleProvider.TabColorHighLighted1 = System.Drawing.Color.Peru;
+            this.tabsTable.DisplayStyleProvider.TabColorHighLighted2 = System.Drawing.Color.Peru;
             this.tabsTable.DisplayStyleProvider.TabColorSelected1 = System.Drawing.SystemColors.ControlLightLight;
             this.tabsTable.DisplayStyleProvider.TabColorSelected2 = System.Drawing.SystemColors.ControlLightLight;
-            this.tabsTable.DisplayStyleProvider.TabColorUnSelected1 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
-            this.tabsTable.DisplayStyleProvider.TabColorUnSelected2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.tabsTable.DisplayStyleProvider.TabColorUnSelected1 = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.tabsTable.DisplayStyleProvider.TabColorUnSelected2 = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
             this.tabsTable.DisplayStyleProvider.TabPageMargin = new System.Windows.Forms.Padding(1);
-            this.tabsTable.DisplayStyleProvider.TextColorDisabled = System.Drawing.SystemColors.ControlDark;
             this.tabsTable.DisplayStyleProvider.TextColorFocused = System.Drawing.SystemColors.ControlText;
             this.tabsTable.DisplayStyleProvider.TextColorHighlighted = System.Drawing.SystemColors.ControlText;
             this.tabsTable.DisplayStyleProvider.TextColorSelected = System.Drawing.SystemColors.ControlText;
-            this.tabsTable.DisplayStyleProvider.TextColorUnselected = System.Drawing.SystemColors.ControlText;
+            this.tabsTable.DisplayStyleProvider.TextColorUnselected = System.Drawing.SystemColors.ButtonHighlight;
             this.tabsTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabsTable.HotTrack = true;
             this.tabsTable.ItemSize = new System.Drawing.Size(110, 26);
@@ -181,6 +181,7 @@ namespace CourseWork_1._0{
             // 
             // category1
             // 
+            this.category1.BackColor = System.Drawing.Color.White;
             this.category1.Controls.Add(this.productsTable);
             this.category1.Controls.Add(this.button1);
             this.category1.Location = new System.Drawing.Point(4, 31);
@@ -189,7 +190,6 @@ namespace CourseWork_1._0{
             this.category1.Size = new System.Drawing.Size(791, 347);
             this.category1.TabIndex = 0;
             this.category1.Text = "Products";
-            this.category1.UseVisualStyleBackColor = true;
             // 
             // productsTable
             // 
@@ -464,129 +464,129 @@ namespace CourseWork_1._0{
             // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.addButton.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
+            this.addButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.addButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.addButton.BorderRadius = 10;
             this.addButton.BorderSize = 0;
             this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addButton.FlatAppearance.BorderSize = 0;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addButton.ForeColor = System.Drawing.Color.White;
+            this.addButton.ForeColor = System.Drawing.Color.Black;
             this.addButton.Location = new System.Drawing.Point(534, 2);
             this.addButton.Margin = new System.Windows.Forms.Padding(2);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(129, 27);
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Add";
-            this.addButton.TextColor = System.Drawing.Color.White;
+            this.addButton.TextColor = System.Drawing.Color.Black;
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.AddButtonClick);
             // 
             // deleteButton
             // 
-            this.deleteButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.deleteButton.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
+            this.deleteButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.deleteButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.deleteButton.BorderRadius = 10;
             this.deleteButton.BorderSize = 0;
             this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.ForeColor = System.Drawing.Color.White;
+            this.deleteButton.ForeColor = System.Drawing.Color.Black;
             this.deleteButton.Location = new System.Drawing.Point(401, 2);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(129, 27);
             this.deleteButton.TabIndex = 1;
             this.deleteButton.Text = "Delete";
-            this.deleteButton.TextColor = System.Drawing.Color.White;
+            this.deleteButton.TextColor = System.Drawing.Color.Black;
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.DeleteButtonClick);
             // 
             // EditButton
             // 
-            this.EditButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.EditButton.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
+            this.EditButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.EditButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.EditButton.BorderRadius = 10;
             this.EditButton.BorderSize = 0;
             this.EditButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EditButton.FlatAppearance.BorderSize = 0;
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.ForeColor = System.Drawing.Color.White;
+            this.EditButton.ForeColor = System.Drawing.Color.Black;
             this.EditButton.Location = new System.Drawing.Point(268, 2);
             this.EditButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(129, 27);
             this.EditButton.TabIndex = 2;
             this.EditButton.Text = "Edit";
-            this.EditButton.TextColor = System.Drawing.Color.White;
+            this.EditButton.TextColor = System.Drawing.Color.Black;
             this.EditButton.UseVisualStyleBackColor = false;
             this.EditButton.Click += new System.EventHandler(this.EditButtonClick);
             // 
             // PurchaseButton
             // 
-            this.PurchaseButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.PurchaseButton.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.PurchaseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
+            this.PurchaseButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.PurchaseButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.PurchaseButton.BorderRadius = 10;
             this.PurchaseButton.BorderSize = 0;
             this.PurchaseButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PurchaseButton.FlatAppearance.BorderSize = 0;
             this.PurchaseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PurchaseButton.ForeColor = System.Drawing.Color.White;
+            this.PurchaseButton.ForeColor = System.Drawing.Color.Black;
             this.PurchaseButton.Location = new System.Drawing.Point(135, 2);
             this.PurchaseButton.Margin = new System.Windows.Forms.Padding(2);
             this.PurchaseButton.Name = "PurchaseButton";
             this.PurchaseButton.Size = new System.Drawing.Size(129, 27);
             this.PurchaseButton.TabIndex = 4;
             this.PurchaseButton.Text = "Purchase";
-            this.PurchaseButton.TextColor = System.Drawing.Color.White;
+            this.PurchaseButton.TextColor = System.Drawing.Color.Black;
             this.PurchaseButton.UseVisualStyleBackColor = false;
-            this.PurchaseButton.Click += new System.EventHandler(this.PurchaseButton_Click);
+            this.PurchaseButton.Click += new System.EventHandler(this.PurchaseButtonClick);
             // 
             // SellButton
             // 
-            this.SellButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.SellButton.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.SellButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
+            this.SellButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.SellButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.SellButton.BorderRadius = 10;
             this.SellButton.BorderSize = 0;
             this.SellButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SellButton.FlatAppearance.BorderSize = 0;
             this.SellButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SellButton.ForeColor = System.Drawing.Color.White;
+            this.SellButton.ForeColor = System.Drawing.Color.Black;
             this.SellButton.Location = new System.Drawing.Point(2, 2);
             this.SellButton.Margin = new System.Windows.Forms.Padding(2);
             this.SellButton.Name = "SellButton";
             this.SellButton.Size = new System.Drawing.Size(129, 27);
             this.SellButton.TabIndex = 5;
             this.SellButton.Text = "Sell";
-            this.SellButton.TextColor = System.Drawing.Color.White;
+            this.SellButton.TextColor = System.Drawing.Color.Black;
             this.SellButton.UseVisualStyleBackColor = false;
-            this.SellButton.Click += new System.EventHandler(this.SellButton_Click);
+            this.SellButton.Click += new System.EventHandler(this.SellButtonClick);
             // 
             // ShowAllButton
             // 
-            this.ShowAllButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ShowAllButton.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ShowAllButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
+            this.ShowAllButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.ShowAllButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.ShowAllButton.BorderRadius = 10;
             this.ShowAllButton.BorderSize = 0;
             this.ShowAllButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ShowAllButton.FlatAppearance.BorderSize = 0;
             this.ShowAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowAllButton.ForeColor = System.Drawing.Color.White;
+            this.ShowAllButton.ForeColor = System.Drawing.Color.Black;
             this.ShowAllButton.Location = new System.Drawing.Point(667, 2);
             this.ShowAllButton.Margin = new System.Windows.Forms.Padding(2);
             this.ShowAllButton.Name = "ShowAllButton";
             this.ShowAllButton.Size = new System.Drawing.Size(130, 27);
             this.ShowAllButton.TabIndex = 6;
             this.ShowAllButton.Text = "Show all";
-            this.ShowAllButton.TextColor = System.Drawing.Color.White;
+            this.ShowAllButton.TextColor = System.Drawing.Color.Black;
             this.ShowAllButton.UseVisualStyleBackColor = false;
-            this.ShowAllButton.Click += new System.EventHandler(this.ShowAllButton_Click);
+            this.ShowAllButton.Click += new System.EventHandler(this.ShowAllButtonClick);
             // 
             // tableLayoutPanel2
             // 
@@ -606,24 +606,24 @@ namespace CourseWork_1._0{
             // 
             // SearchButton
             // 
-            this.SearchButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.SearchButton.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
+            this.SearchButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.SearchButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.SearchButton.BorderRadius = 12;
             this.SearchButton.BorderSize = 0;
             this.SearchButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchButton.FlatAppearance.BorderSize = 0;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchButton.ForeColor = System.Drawing.Color.White;
+            this.SearchButton.ForeColor = System.Drawing.Color.Black;
             this.SearchButton.Location = new System.Drawing.Point(774, 2);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(25, 25);
             this.SearchButton.TabIndex = 1;
             this.SearchButton.Text = "Q";
-            this.SearchButton.TextColor = System.Drawing.Color.White;
+            this.SearchButton.TextColor = System.Drawing.Color.Black;
             this.SearchButton.UseVisualStyleBackColor = false;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            this.SearchButton.Click += new System.EventHandler(this.SearchButtonClick);
             // 
             // SearchTextBox
             // 
@@ -634,7 +634,7 @@ namespace CourseWork_1._0{
             this.SearchTextBox.Size = new System.Drawing.Size(766, 23);
             this.SearchTextBox.TabIndex = 2;
             this.SearchTextBox.Text = "Search...";
-            this.SearchTextBox.Enter += new System.EventHandler(this.richTextBox1_Enter);
+            this.SearchTextBox.Enter += new System.EventHandler(this.SearchTextBoxOnEnter);
             // 
             // dataGridTextBoxColumn1
             // 

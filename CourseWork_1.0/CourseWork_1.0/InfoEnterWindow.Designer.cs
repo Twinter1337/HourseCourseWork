@@ -42,7 +42,7 @@ namespace CourseWork_1._0{
             // nameTextBox
             // 
             this.nameTextBox.BackColor = System.Drawing.SystemColors.Window;
-            this.nameTextBox.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.nameTextBox.BorderColor = System.Drawing.Color.White;
             this.nameTextBox.BorderFocusColor = System.Drawing.SystemColors.WindowFrame;
             this.nameTextBox.BorderRadius = 10;
             this.nameTextBox.BorderSize = 2;
@@ -55,13 +55,13 @@ namespace CourseWork_1._0{
             this.nameTextBox.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.nameTextBox.PasswordChar = false;
             this.nameTextBox.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.nameTextBox.PlaceholderText = "";
+            this.nameTextBox.PlaceholderText = "Name";
             this.nameTextBox.Size = new System.Drawing.Size(250, 31);
             this.nameTextBox.TabIndex = 0;
             this.nameTextBox.Texts = "";
             this.nameTextBox.UnderlinedStyle = false;
             // 
-            // dateOrMaterialTextBox
+            // MaterialTextBox
             // 
             this.MaterialTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.MaterialTextBox.BorderColor = System.Drawing.SystemColors.ActiveBorder;
@@ -73,7 +73,7 @@ namespace CourseWork_1._0{
             this.MaterialTextBox.Location = new System.Drawing.Point(13, 77);
             this.MaterialTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.MaterialTextBox.Multiline = false;
-            this.MaterialTextBox.Name = "dateOrMaterialTextBox";
+            this.MaterialTextBox.Name = "MaterialTextBox";
             this.MaterialTextBox.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.MaterialTextBox.PasswordChar = false;
             this.MaterialTextBox.PlaceholderColor = System.Drawing.Color.DarkGray;
@@ -86,7 +86,7 @@ namespace CourseWork_1._0{
             // priceTextBox
             // 
             this.priceTextBox.BackColor = System.Drawing.SystemColors.Window;
-            this.priceTextBox.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.priceTextBox.BorderColor = System.Drawing.Color.White;
             this.priceTextBox.BorderFocusColor = System.Drawing.SystemColors.WindowFrame;
             this.priceTextBox.BorderRadius = 10;
             this.priceTextBox.BorderSize = 2;
@@ -99,7 +99,7 @@ namespace CourseWork_1._0{
             this.priceTextBox.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.priceTextBox.PasswordChar = false;
             this.priceTextBox.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.priceTextBox.PlaceholderText = "";
+            this.priceTextBox.PlaceholderText = "Price $";
             this.priceTextBox.Size = new System.Drawing.Size(250, 31);
             this.priceTextBox.TabIndex = 2;
             this.priceTextBox.Texts = "";
@@ -108,7 +108,7 @@ namespace CourseWork_1._0{
             // amountTextBox
             // 
             this.amountTextBox.BackColor = System.Drawing.SystemColors.Window;
-            this.amountTextBox.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.amountTextBox.BorderColor = System.Drawing.Color.White;
             this.amountTextBox.BorderFocusColor = System.Drawing.SystemColors.WindowFrame;
             this.amountTextBox.BorderRadius = 10;
             this.amountTextBox.BorderSize = 2;
@@ -121,7 +121,7 @@ namespace CourseWork_1._0{
             this.amountTextBox.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.amountTextBox.PasswordChar = false;
             this.amountTextBox.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.amountTextBox.PlaceholderText = "";
+            this.amountTextBox.PlaceholderText = "Amount";
             this.amountTextBox.Size = new System.Drawing.Size(250, 31);
             this.amountTextBox.TabIndex = 3;
             this.amountTextBox.Texts = "";
@@ -129,25 +129,26 @@ namespace CourseWork_1._0{
             // 
             // rjButton1
             // 
-            this.rjButton1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.rjButton1.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
+            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton1.BorderRadius = 10;
             this.rjButton1.BorderSize = 0;
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.ForeColor = System.Drawing.Color.Black;
             this.rjButton1.Location = new System.Drawing.Point(13, 237);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(250, 40);
             this.rjButton1.TabIndex = 4;
             this.rjButton1.Text = "Add";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.TextColor = System.Drawing.Color.Black;
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.AddButtonClick);
             // 
             // label1
             // 
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(13, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -157,6 +158,7 @@ namespace CourseWork_1._0{
             // 
             // label2
             // 
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(13, 61);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -166,6 +168,7 @@ namespace CourseWork_1._0{
             // 
             // label3
             // 
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(13, 111);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -175,6 +178,7 @@ namespace CourseWork_1._0{
             // 
             // label4
             // 
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(13, 161);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
@@ -192,15 +196,15 @@ namespace CourseWork_1._0{
             this.DateField.MinimumSize = new System.Drawing.Size(4, 35);
             this.DateField.Name = "DateField";
             this.DateField.Size = new System.Drawing.Size(250, 35);
-            this.DateField.SkinColor = System.Drawing.SystemColors.ButtonShadow;
+            this.DateField.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(168)))));
             this.DateField.TabIndex = 9;
-            this.DateField.TextColor = System.Drawing.Color.White;
+            this.DateField.TextColor = System.Drawing.Color.Black;
             // 
             // InfoEnterWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(278, 284);
             this.Controls.Add(this.DateField);
             this.Controls.Add(this.label4);
