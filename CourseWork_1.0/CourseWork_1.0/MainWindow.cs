@@ -67,14 +67,15 @@ namespace CourseWork_1._0
 
         private void ReadTotal()
         {
+            if (!File.Exists(InfoDb.TotalFilePath))
+            {
+                File.CreateText(InfoDb.TotalFilePath).Dispose();
+                _total = 0;
+                return;
+            }
             using (StreamReader readTotalFile = File.OpenText(InfoDb.TotalFilePath))
             {
                 _total = double.Parse(readTotalFile.ReadToEnd());
-                if (_total == null)
-                {
-                    MessageBox.Show("Error! Invalid total sum!");
-                    _total = 0;
-                }
             }
         }
         
