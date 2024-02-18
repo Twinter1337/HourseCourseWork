@@ -68,6 +68,7 @@ namespace CourseWork_1._0{
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.SearchButton = new RJCodeAdvance.RJControls.RJButton();
             this.SearchTextBox = new System.Windows.Forms.RichTextBox();
+            this.TotalLable = new System.Windows.Forms.Label();
             this.dataGridTextBoxColumn1 = new System.Windows.Forms.DataGridTextBoxColumn();
             this.dataGridTextBoxColumn2 = new System.Windows.Forms.DataGridTextBoxColumn();
             this.faTabStripItem1 = new FarsiLibrary.Win.FATabStripItem();
@@ -590,11 +591,13 @@ namespace CourseWork_1._0{
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tableLayoutPanel2.Controls.Add(this.SearchButton, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.SearchTextBox, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.TotalLable, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
@@ -615,7 +618,7 @@ namespace CourseWork_1._0{
             this.SearchButton.FlatAppearance.BorderSize = 0;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.ForeColor = System.Drawing.Color.Black;
-            this.SearchButton.Location = new System.Drawing.Point(774, 2);
+            this.SearchButton.Location = new System.Drawing.Point(612, 2);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(25, 25);
@@ -631,10 +634,23 @@ namespace CourseWork_1._0{
             this.SearchTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchTextBox.Location = new System.Drawing.Point(3, 3);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(766, 23);
+            this.SearchTextBox.Size = new System.Drawing.Size(604, 23);
             this.SearchTextBox.TabIndex = 2;
             this.SearchTextBox.Text = "Search...";
             this.SearchTextBox.Enter += new System.EventHandler(this.SearchTextBoxOnEnter);
+            // 
+            // TotalLable
+            // 
+            this.TotalLable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TotalLable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TotalLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalLable.ForeColor = System.Drawing.Color.White;
+            this.TotalLable.Location = new System.Drawing.Point(642, 0);
+            this.TotalLable.Name = "TotalLable";
+            this.TotalLable.Size = new System.Drawing.Size(156, 29);
+            this.TotalLable.TabIndex = 3;
+            this.TotalLable.Text = "Total: 0$";
+            this.TotalLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dataGridTextBoxColumn1
             // 
@@ -699,6 +715,8 @@ namespace CourseWork_1._0{
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label TotalLable;
 
         private RJCodeAdvance.RJControls.RJButton ShowAllButton;
 

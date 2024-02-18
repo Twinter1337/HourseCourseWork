@@ -51,8 +51,16 @@ namespace CourseWork_1._0
             InfoDb.Name = nameTextBox.Texts;
             InfoDb.Date = DateField.Text;
             InfoDb.Material = MaterialTextBox.Texts;
-            InfoDb.Price = double.Parse(priceTextBox.Texts);
-            InfoDb.Amount = int.Parse(amountTextBox.Texts);
+            if (!double.TryParse(priceTextBox.Texts, out InfoDb.Price) || InfoDb.Price <= 0)
+            {
+                MessageBox.Show("Error! Wrong price!");
+                return;
+            }
+            if (!int.TryParse(amountTextBox.Texts, out InfoDb.Amount) || InfoDb.Amount <= 0)
+            {
+                MessageBox.Show("Error! Wrong amount!");
+                return;
+            }
 
             parent.AddNewRow();
             Close();

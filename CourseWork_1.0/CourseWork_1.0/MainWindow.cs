@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using CourseWork_1._0.Classes;
 
@@ -12,7 +13,7 @@ namespace CourseWork_1._0
         public List<NonPerishableProducts> nonPerishableProductsStorage;
 
         private DataManipulator _IOFile;
-
+        private double _total;
         public MainWindow()
         {
             productStorage = new List<Product>();
@@ -56,7 +57,27 @@ namespace CourseWork_1._0
             }
         }
 
+        private void SaveTotal()
+        {
+            using (StreamWriter saveTotalFile = File.CreateText(InfoDb.TotalFilePath))
+            {
+                saveTotalFile.Write(_total);
+            }
+        }
 
+        private void ReadTotal()
+        {
+            using (StreamReader readTotalFile = File.OpenText(InfoDb.TotalFilePath))
+            {
+                _total = double.Parse(readTotalFile.ReadToEnd());
+                if (_total == null)
+                {
+                    MessageBox.Show("Error! Invalid total sum!");
+                    _total = 0;
+                }
+            }
+        }
+        
         public void CreateNewRow(DataGridView page, int classIndex)
         {
             DataGridViewRow newRow;
@@ -92,47 +113,38 @@ namespace CourseWork_1._0
         {
             _IOFile = new DataManipulator();
             _IOFile.SaveDataToJson(productStorage, spoilingProductsStorage, nonPerishableProductsStorage);
+            SaveTotal();
         }
 
         private void MainWindowLoad(object sender, EventArgs e)
         {
             _IOFile = new DataManipulator();
             _IOFile.LoadDataFromJson(ref productStorage, ref spoilingProductsStorage, ref nonPerishableProductsStorage);
-            CreateStartNotes(productStorage, spoilingProductsStorage, nonPerishableProductsStorage);
+            ReadTotal();
+            CreateStartNotes();
         }
 
-        private void CreateStartNotes(List<Product> productStorage, List<SpoilingProducts> spoilingProductsStorage,
-            List<NonPerishableProducts> nonPerishableProductsStorage)
+        private void CreateStartNotes()
+        {
+            AddProductsToTable(productStorage, productsTable, "-", (product) => new object[] { product.Name, "-", product.Price, product.Amount });
+            AddProductsToTable(spoilingProductsStorage, spoilingProductsTable,null, (product) => new object[] { product.Name, product.Date, product.Price, product.Amount });
+            AddProductsToTable(nonPerishableProductsStorage, nonPerishableProductsTable,null, (product) => new object[] { product.Name, product.Material, product.Price, product.Amount });
+
+            TotalLable.Text = "Total: " + _total + "$";
+        }
+
+        private void AddProductsToTable<T>(List<T> products, DataGridView table, string defaultCellValue, Func<T, object[]> cellValuesSelector)
         {
             DataGridViewRow newRow;
-            for (int i = 0; i < productStorage.Count; i++)
+            foreach (var product in products)
             {
-                newRow = (DataGridViewRow)productsTable.Rows[0].Clone();
-                newRow.Cells[0].Value = productStorage[i].Name;
-                newRow.Cells[1].Value = "-";
-                newRow.Cells[2].Value = productStorage[i].Price;
-                newRow.Cells[3].Value = productStorage[i].Amount;
-                productsTable.Rows.Add(newRow);
-            }
-
-            for (int i = 0; i < spoilingProductsStorage.Count; i++)
-            {
-                newRow = (DataGridViewRow)spoilingProductsTable.Rows[0].Clone();
-                newRow.Cells[0].Value = spoilingProductsStorage[i].Name;
-                newRow.Cells[1].Value = spoilingProductsStorage[i].Date;
-                newRow.Cells[2].Value = spoilingProductsStorage[i].Price;
-                newRow.Cells[3].Value = spoilingProductsStorage[i].Amount;
-                spoilingProductsTable.Rows.Add(newRow);
-            }
-
-            for (int i = 0; i < nonPerishableProductsStorage.Count; i++)
-            {
-                newRow = (DataGridViewRow)nonPerishableProductsTable.Rows[0].Clone();
-                newRow.Cells[0].Value = nonPerishableProductsStorage[i].Name;
-                newRow.Cells[1].Value = nonPerishableProductsStorage[i].Material;
-                newRow.Cells[2].Value = nonPerishableProductsStorage[i].Price;
-                newRow.Cells[3].Value = nonPerishableProductsStorage[i].Amount;
-                nonPerishableProductsTable.Rows.Add(newRow);
+                newRow = (DataGridViewRow)table.Rows[0].Clone();
+                object[] cellValues = cellValuesSelector(product);
+                for (int i = 0; i < cellValues.Length; i++)
+                {
+                    newRow.Cells[i].Value = cellValues[i] ?? defaultCellValue;
+                }
+                table.Rows.Add(newRow);
             }
         }
 
@@ -153,74 +165,73 @@ namespace CourseWork_1._0
         {
             if (productsTable.Visible)
             {
+                ShowInfo(productStorage[productsTable.CurrentRow.Index], nameTextBox, null, null, priceTextBox, amountTextBox);
                 MaterialTextBox.Enabled = false;
-                nameTextBox.Texts = productStorage[productsTable.CurrentRow.Index].Name;
-                priceTextBox.Texts = productStorage[productsTable.CurrentRow.Index].Price.ToString();
-                amountTextBox.Texts = productStorage[productsTable.CurrentRow.Index].Amount.ToString();
             }
             else if (spoilingProductsTable.Visible)
             {
-                nameTextBox.Texts = spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Name;
-                dateField.Text = spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Date;
-                priceTextBox.Texts = spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Price.ToString();
-                amountTextBox.Texts = spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Amount.ToString();
+                ShowInfo(spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index], nameTextBox, dateField, null, priceTextBox, amountTextBox);
             }
             else if (nonPerishableProductsTable.Visible)
             {
-                nameTextBox.Texts = nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Name;
-                MaterialTextBox.Texts =
-                    nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Material;
-                priceTextBox.Texts = nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Price
-                    .ToString();
-                amountTextBox.Texts = nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount
-                    .ToString();
+                ShowInfo(nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index], nameTextBox, null, MaterialTextBox, priceTextBox, amountTextBox);
             }
         }
+
+        private void ShowInfo(Product product, RJCodeAdvance.RJControls.RJTextBox nameTextBox,
+            RJCodeAdvance.RJControls.RJDatePicker dateField, RJCodeAdvance.RJControls.RJTextBox MaterialTextBox,
+            RJCodeAdvance.RJControls.RJTextBox priceTextBox, RJCodeAdvance.RJControls.RJTextBox amountTextBox)
+        {
+            nameTextBox.Texts = product.Name;
+            priceTextBox.Texts = product.Price.ToString();
+            amountTextBox.Texts = product.Amount.ToString();
+
+            if (product is SpoilingProducts spoilingProduct)
+            {
+                dateField.Text = spoilingProduct.Date;
+            }
+            else if (product is NonPerishableProducts nonPerishableProduct)
+            {
+                MaterialTextBox.Texts = nonPerishableProduct.Material;
+            }
+        }
+
 
         public void EditObject()
         {
             if (productsTable.Visible)
             {
-                productStorage[productsTable.CurrentRow.Index].Name = InfoDb.Name;
-                productStorage[productsTable.CurrentRow.Index].Price = InfoDb.Price;
-                productStorage[productsTable.CurrentRow.Index].Amount = InfoDb.Amount;
-
-                productsTable.CurrentRow.Cells[0].Value = productStorage[productsTable.CurrentRow.Index].Name;
-                productsTable.CurrentRow.Cells[2].Value = productStorage[productsTable.CurrentRow.Index].Price;
-                productsTable.CurrentRow.Cells[3].Value = productStorage[productsTable.CurrentRow.Index].Amount;
+                UpdateProduct(productStorage[productsTable.CurrentRow.Index], productsTable);
             }
             else if (spoilingProductsTable.Visible)
             {
-                spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Name = InfoDb.Name;
-                spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Date = InfoDb.Date;
-                spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Price = InfoDb.Price;
-                spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Amount = InfoDb.Amount;
-
-                spoilingProductsTable.CurrentRow.Cells[0].Value =
-                    spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Name;
-                spoilingProductsTable.CurrentRow.Cells[1].Value =
-                    spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Date;
-                spoilingProductsTable.CurrentRow.Cells[2].Value =
-                    spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Price;
-                spoilingProductsTable.CurrentRow.Cells[3].Value =
-                    spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Amount;
+                UpdateProduct(spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index], spoilingProductsTable);
             }
             else if (nonPerishableProductsTable.Visible)
             {
-                nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Name = InfoDb.Name;
-                nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Material =
-                    InfoDb.Material;
-                nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Price = InfoDb.Price;
-                nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount = InfoDb.Amount;
+                UpdateProduct(nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index], nonPerishableProductsTable);
+            }
+        }
 
-                nonPerishableProductsTable.CurrentRow.Cells[0].Value =
-                    nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Name;
-                nonPerishableProductsTable.CurrentRow.Cells[1].Value =
-                    nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Material;
-                nonPerishableProductsTable.CurrentRow.Cells[2].Value =
-                    nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Price;
-                nonPerishableProductsTable.CurrentRow.Cells[3].Value =
-                    nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount;
+        private void UpdateProduct(Product product, DataGridView table)
+        {
+            product.Name = InfoDb.Name;
+            product.Price = InfoDb.Price;
+            product.Amount = InfoDb.Amount;
+
+            table.CurrentRow.Cells[0].Value = product.Name;
+            table.CurrentRow.Cells[2].Value = product.Price;
+            table.CurrentRow.Cells[3].Value = product.Amount;
+
+            if (product is SpoilingProducts spoilingProduct)
+            {
+                spoilingProduct.Date = InfoDb.Date;
+                table.CurrentRow.Cells[1].Value = spoilingProduct.Date;
+            }
+            else if (product is NonPerishableProducts nonPerishableProduct)
+            {
+                nonPerishableProduct.Material = InfoDb.Material;
+                table.CurrentRow.Cells[1].Value = nonPerishableProduct.Material;
             }
         }
 
@@ -231,49 +242,23 @@ namespace CourseWork_1._0
 
         private void SearchButtonClick(object sender, EventArgs e)
         {
-            for (int j = 0; j < productStorage.Count; j++)
+            SetRowsVisibility(productStorage, productsTable);
+            SetRowsVisibility(spoilingProductsStorage, spoilingProductsTable);
+            SetRowsVisibility(nonPerishableProductsStorage, nonPerishableProductsTable);
+        }
+
+        private void SetRowsVisibility<T>(List<T> storage, DataGridView table) where T : Product
+        {
+            for (int j = 0; j < storage.Count; j++)
             {
-                productsTable.Rows[j].Visible = true;
+                table.Rows[j].Visible = true;
             }
 
-            for (int j = 0; j < spoilingProductsStorage.Count; j++)
+            if (table.Visible)
             {
-                spoilingProductsTable.Rows[j].Visible = true;
-            }
-
-            for (int j = 0; j < nonPerishableProductsStorage.Count; j++)
-            {
-                nonPerishableProductsTable.Rows[j].Visible = true;
-            }
-
-            if (productsTable.Visible)
-            {
-                for (int i = 0; i < productStorage.Count; i++)
+                for (int i = 0; i < storage.Count; i++)
                 {
-                    if (productStorage[i].Name != SearchTextBox.Text)
-                    {
-                        productsTable.Rows[i].Visible = false;
-                    }
-                }
-            }
-            else if (spoilingProductsTable.Visible)
-            {
-                for (int i = 0; i < spoilingProductsStorage.Count; i++)
-                {
-                    if (spoilingProductsStorage[i].Name != SearchTextBox.Text)
-                    {
-                        spoilingProductsTable.Rows[i].Visible = false;
-                    }
-                }
-            }
-            else if (nonPerishableProductsTable.Visible)
-            {
-                for (int i = 0; i < nonPerishableProductsStorage.Count; i++)
-                {
-                    if (nonPerishableProductsStorage[i].Name != SearchTextBox.Text)
-                    {
-                        nonPerishableProductsTable.Rows[i].Visible = false;
-                    }
+                    table.Rows[i].Visible = storage[i].Name == SearchTextBox.Text;
                 }
             }
         }
@@ -281,19 +266,16 @@ namespace CourseWork_1._0
         private void ShowAllButtonClick(object sender, EventArgs e)
         {
             SearchTextBox.Text = "Search...";
-            for (int j = 0; j < productStorage.Count; j++)
-            {
-                productsTable.Rows[j].Visible = true;
-            }
+            SetRowsVisibilityAfterSearch(productStorage, productsTable);
+            SetRowsVisibilityAfterSearch(spoilingProductsStorage, spoilingProductsTable);
+            SetRowsVisibilityAfterSearch(nonPerishableProductsStorage, nonPerishableProductsTable);
+        }
 
-            for (int j = 0; j < spoilingProductsStorage.Count; j++)
+        private void SetRowsVisibilityAfterSearch<T>(List<T> storage, DataGridView table)
+        {
+            for (int j = 0; j < storage.Count; j++)
             {
-                spoilingProductsTable.Rows[j].Visible = true;
-            }
-
-            for (int j = 0; j < nonPerishableProductsStorage.Count; j++)
-            {
-                nonPerishableProductsTable.Rows[j].Visible = true;
+                table.Rows[j].Visible = true;
             }
         }
 
@@ -337,27 +319,24 @@ namespace CourseWork_1._0
         {
             if (productsTable.Visible)
             {
-                if (CheckIfRowSelected(productsTable))
-                {
-                    productsTable.Rows.Remove(productsTable.CurrentRow);
-                    productStorage.RemoveAt(productsTable.CurrentRow.Index);
-                }
+                DeleteRowAndProduct(productsTable, productStorage);
             }
             else if (spoilingProductsTable.Visible)
             {
-                if (CheckIfRowSelected(spoilingProductsTable))
-                {
-                    spoilingProductsTable.Rows.Remove(spoilingProductsTable.CurrentRow);
-                    spoilingProductsStorage.RemoveAt(spoilingProductsTable.CurrentRow.Index);
-                }
+                DeleteRowAndProduct(spoilingProductsTable, spoilingProductsStorage);
             }
             else if (nonPerishableProductsTable.Visible)
             {
-                if (CheckIfRowSelected(nonPerishableProductsTable))
-                {
-                    nonPerishableProductsTable.Rows.Remove(nonPerishableProductsTable.CurrentRow);
-                    nonPerishableProductsStorage.RemoveAt(nonPerishableProductsTable.CurrentRow.Index);
-                }
+                DeleteRowAndProduct(nonPerishableProductsTable, nonPerishableProductsStorage);
+            }
+        }
+
+        private void DeleteRowAndProduct<T>(DataGridView table, List<T> storage)
+        {
+            if (CheckIfRowSelected(table))
+            {
+                table.Rows.Remove(table.CurrentRow);
+                storage.RemoveAt(table.CurrentRow.Index);
             }
         }
 
@@ -398,65 +377,60 @@ namespace CourseWork_1._0
         {
             if (productsTable.Visible)
             {
-                productStorage[productsTable.CurrentRow.Index].Amount += amount;
-                productsTable.CurrentRow.Cells[3].Value = productStorage[productsTable.CurrentRow.Index].Amount;
+                UpdateProductAmount(productStorage[productsTable.CurrentRow.Index], amount, productsTable);
             }
             else if (spoilingProductsTable.Visible)
             {
-                spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Amount += amount;
-                spoilingProductsTable.CurrentRow.Cells[3].Value =
-                    spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Amount;
+                UpdateProductAmount(spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index], amount, spoilingProductsTable);
             }
             else if (nonPerishableProductsTable.Visible)
             {
-                nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount += amount;
-                nonPerishableProductsTable.CurrentRow.Cells[3].Value =
-                    nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount;
+                UpdateProductAmount(nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index], amount, nonPerishableProductsTable);
             }
         }
-        
+
+        private void UpdateProductAmount(Product product, int amount, DataGridView table)
+        {
+            if (amount <= 0)
+            {
+                MessageBox.Show("Error! Invalid purchase amount!");
+                return;
+            }
+            product.Amount += amount;
+            table.CurrentRow.Cells[3].Value = product.Amount;
+            _total -= (amount * product.Price);
+            TotalLable.Text = "Total: " + _total + "$";
+        }
+
         public void Sell(int amount)
         {
             if (productsTable.Visible)
             {
-                if (amount <= productStorage[productsTable.CurrentRow.Index].Amount)
-                {
-                    productStorage[productsTable.CurrentRow.Index].Amount -= amount;
-                    productsTable.CurrentRow.Cells[3].Value = productStorage[productsTable.CurrentRow.Index].Amount;
-                }
-                else
-                {
-                    MessageBox.Show("Error! the amount is negative!");
-                    return;
-                }
+                SellProduct(productStorage[productsTable.CurrentRow.Index], amount, productsTable);
             }
             else if (spoilingProductsTable.Visible)
             {
-                if (amount <= spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Amount)
-                {
-                    spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Amount -= amount;
-                    spoilingProductsTable.CurrentRow.Cells[3].Value =
-                        spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index].Amount;
-                }
-                else
-                {
-                    MessageBox.Show("Error! the amount is negative!");
-                    return;
-                }
+                SellProduct(spoilingProductsStorage[spoilingProductsTable.CurrentRow.Index], amount, spoilingProductsTable);
             }
             else if (nonPerishableProductsTable.Visible)
             {
-                if (amount <= nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount)
-                {
-                    nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount -= amount;
-                    nonPerishableProductsTable.CurrentRow.Cells[3].Value =
-                        nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index].Amount;
-                }
-                else
-                {
-                    MessageBox.Show("Error! the amount is negative!");
-                    return;
-                }
+                SellProduct(nonPerishableProductsStorage[nonPerishableProductsTable.CurrentRow.Index], amount, nonPerishableProductsTable);
+            }
+        }
+
+        private void SellProduct(Product product, int amount, DataGridView table)
+        {
+            if (amount <= product.Amount)
+            {
+                product.Amount -= amount;
+                table.CurrentRow.Cells[3].Value = product.Amount;
+
+                _total += (amount * product.Price);
+                TotalLable.Text = "Total: " + _total + "$";
+            }
+            else
+            {
+                MessageBox.Show("Error! the amount is negative!");
             }
         }
     }
